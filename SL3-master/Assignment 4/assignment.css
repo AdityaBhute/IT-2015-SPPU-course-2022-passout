@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    background-color: #f1f1f1;
+}
+/* Style navbar and its ul li */
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #41393e;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav li a:hover:not(.active),  {
+    background-color: #111;
+}
+
+.dropbtn {
+    display: inline-block;
+    color: #41393e;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.dropdown:hover .dropbtn{
+    background-color: #41393e;
+
+}
+/* active style */
+.nav .active {
+    background-color: #8e4162;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #41393e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #8e4162}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+legend{
+    margin: 0 auto;
+}
+.form{
+    width: 50%;
+    margin: 0 auto;
+
+}
+form {
+    display: block;
+    text-align: center;
+}
+/* Style the header */
+.header {
+    padding: 50px;
+
+    text-align: center;
+
+    background-color: #f1f1f1;
+}
+
+/* Container for flexboxes */
+.row {
+
+    display:         flex;
+}
+
+/* Create three unequal columns that sits next to each other */
+.column {
+    height: 250px;
+    padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+
+    flex: 1;
+}
+
+/* Middle column */
+.column.middle {
+
+    flex: 2;
+}
+
+/* Style the footer */
+.footer {
+    padding: 10px;
+
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #f1f1f1;
+    position: fixed;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assignment 4</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="assignment.css">
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li><a class="active" href="assignment3.html">Assignment 4</a></li>
+      <li><a href="page2.html">Page 2</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Dropdown Menu</a>
+        <div class="dropdown-content">
+          <a href="page2.html">Page 2</a>
+          <a href="#">Page 3</a>
+          <a href="#">Page 4</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="header">
+    <h2>Assignment 4</h2>
+    <h3>Aim</h3>
+    <p>Validate URL, Email, Required using functions empty, preg_match, filter_var in PHP.</p>
+
+  </div>
+  <div class="form">
+    <form action="test.php" method="post"> 
+     <fieldset>
+      <legend align="center">Personal information:</legend>
+      First name:<br>
+      <input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]{1,12}">
+      <br>
+      Last name:<br>
+      <input type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]{1,12}">
+      <br>
+      Gender:<br>
+      <input type="radio" name="gender" value="male" checked> Male
+      <input type="radio" name="gender" value="female"> Female
+      <input type="radio" name="gender" value="other"> Other
+      <br>
+      Qualitfication:<br>
+      <input type="checkbox" name="vehicle1" value="ssc"> ssc
+      <input type="checkbox" name="vehicle2" value="hsc"> hsc
+      <br><br>
+      
+    </fieldset>
+    <fieldset>
+      <legend align="center">Contact information:</legend>
+      Phone Number:<br>
+      <input type="text" name="pnumber" placeholder="Phone Number" pattern="[0-9]{10}">
+      <br>
+      Email:<br>
+      <input type="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <br><br>
+      
+    </fieldset>
+
+    <button type="submit">Submit</button> 
+  </form>
+</div>
+<div class="footer">
+  <p>Designed by Sujay Mahadik</p>
+</div>
+</body>
+</html>
