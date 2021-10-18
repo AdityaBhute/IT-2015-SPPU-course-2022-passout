@@ -1,0 +1,102 @@
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef struct gll
+{
+    int tag;
+    struct gll* next;
+    char data;
+    struct gll* dlink;
+} GLL;
+
+GLL* createNode(char value, int flag)
+{
+    GLL* newNode = calloc(1, sizeof(*newNode));
+
+    if (!newNode)
+	return NULL;
+
+    newNode->tag = flag;
+    newNode->data = value;
+    return newNode;
+}
+
+void freeList(GLL *list)
+{
+    GLL *current_node = list,*temp;
+
+    //for (GLL *current_node = list, *temp; current_node; current_node = temp) {
+    while(current_node!=temp)
+    {
+	temp = current_node->next;
+	freeList(current_node->dlink);
+	free(current_node);
+    }
+}
+
+GLL* generateList(char *poly, size_t *pos)
+{
+    size_t const length = strlen(poly);
+    GLL *head = NULL;
+    GLL *tail = NULL;
+ for (; *pos < length; ++*pos) {
+	if (poly[*pos] == '(') {
+	    ++*pos;  // don't have the next called generateList() read '(' again
+	    tail->dlink = generateList(poly, pos);
+	    if (!tail->dlink) {
+		freeList(head);
+		return NULL;
+	    }
+	    continue;
+	}
+	else if (poly[*pos] == ')') {
+	    return head;
+	}
+	else if (isalpha((char unsigned)poly[*pos])) {
+	    if (!head) {
+		head = tail = createNode(poly[*pos], 0);
+	    }
+	    else {
+		tail->next = createNode(poly[*pos], 0);
+		tail = tail->next;
+}
+	    continue;
+	}
+	else if (poly[*pos] == ',')
+	    continue;
+
+	fputs("Format error :(\n\n", stderr);
+	freeList(head);
+	return NULL;
+    }
+
+    return head;
+}
+
+void printList(GLL *list)
+{   GLL *node = list;
+    //for (GLL *node = list; node; node = node->next)
+    while(node!=node->next){
+	printf("%c ", node->data);
+	if (node->dlink) {
+	    putchar('(');
+	    printList(node->dlink);
+	    printf("\b) ");
+	}
+    }
+}
+
+void main(void)
+{
+    size_t pos = 0;
+    GLL *list = generateList("a,(b,(c,d,e(f)),g,h),i,j,k", &pos);
+    clrscr();
+
+    printList(list);
+    putchar('\n');
+
+  //  freeList(list);
+  getch();
+}
