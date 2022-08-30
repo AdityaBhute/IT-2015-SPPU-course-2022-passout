@@ -1,0 +1,8 @@
+cmd promt commands
+ 
+java -version
+ javac -version
+running:
+cd directory
+javac filename.java
+java filename.class
