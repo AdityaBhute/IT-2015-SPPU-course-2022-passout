@@ -1,0 +1,42 @@
+import requests
+import csv
+import json
+class Scraper:
+    def __init__(self, url):
+        self.url = url
+    def scrape(self):
+        # Get the HTML content of the website
+        response = requests.get(self.url)
+        html = response.content
+        # Parse the HTML content to extract the data
+        soup = BeautifulSoup(html, 'html.parser')
+        data = []
+        for row in soup.find_all('tr'):
+            cells = row.find_all('td')
+            data.append([cell.text for cell in cells])
+        # Write the data to a CSV file
+        with open('data.csv', 'w', newline='') as csvfile:
+            csvwriter = csv.writer(csvfile)
+            csvwriter.writerows(data)
+# Create a scraper for each website
+scraper1 = Scraper('https://www.earthdata.nasa.gov/engage/open-data-services-and-software/api')
+scraper2 = Scraper('https://www.nnvl.noaa.gov/view/globaldata.html')
+scraper3 = Scraper('https://www.bea.gov/api/data/')
+scraper4 = Scraper('https://datacommons.google.com/')
+scraper5 = Scraper('https://ieg.worldbankgroup.org/data')
+scraper6 = Scraper('https://www.chinabidding.com/en')
+scraper7 = Scraper('http://www.ggzy.gov.cn/')
+scraper8 = Scraper('http://en.chinabidding.mofcom.gov.cn/')
+scraper9 = Scraper('https://www.cpppc.org/en/PPPyd.jhtml')
+scraper10 = Scraper('https://www.cpppc.org:8082/inforpublic/homepage.html')
+# Scrape the data from each website
+scraper1.scrape()
+scraper2.scrape()
+scraper3.scrape()
+scraper4.scrape()
+scraper5.scrape()
+scraper6.scrape()
+scraper7.scrape()
+scraper8.scrape()
+scraper9.scrape()
+scraper10.scrape()
